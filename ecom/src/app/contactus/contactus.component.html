@@ -1,0 +1,26 @@
+<div class="contact-wrapper">
+  <div class="container">
+    <h2 class="title">CONTACT</h2>
+    <h3 class="subtitle">CONTACT INFORMATION</h3>
+
+   <div class="info">
+  <p class="brand">EYA JEWELRY</p>
+  <p>Email: <a href="mailto:eyajewelry@gmail.com">eyajewelry&#64;gmail.com</a></p>
+  <p>Phone: <a href="tel:+21612345678">+216 12 345 678</a></p>
+  <a href="#" class="chat-link">💬 Chat With Us</a>
+</div>
+
+
+    <form (submit)="onSubmit(); $event.preventDefault();" class="contact-form">
+      <input type="text" placeholder="Name" #nameInput required />
+      <input type="email" placeholder="Email" #emailInput required />
+      <input type="tel" placeholder="Phone Number" #phoneInput />
+      <textarea rows="4" placeholder="Message" #messageInput required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 EYA JEWELRY. All Rights Reserved.</p>
+  </footer>
+</div>

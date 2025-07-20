@@ -1,0 +1,104 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #dbcfc7, #3b2c27); /* Blush to Plum */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.card {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(26, 20, 18, 0.3); /* Shadow Black */
+  border: 1px solid #6b5839; /* Satin Gold */
+}
+
+.card-header p {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a1412; /* Deep shadow black */
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-weight: 500;
+  color: #3b2c27; /* Velvet Plum */
+}
+
+input.form-control {
+  padding: 10px;
+  border: 1px solid #8d6e63; /* Soft Mocha */
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #a66b42; /* Warm Copper */
+  outline: none;
+}
+
+.btn-success {
+  background-color: #a66b42; /* Warm Copper */
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #b89b6b; /* Satin Gold */
+  color: #1a1412;
+}
+
+p {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  color: #3b2c27;
+}
+
+a {
+  color: #8d6e63; /* Mocha */
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #a66b42;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
+
+.login-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: center;
+  color: #3b2c27;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(26, 20, 18, 0.15); /* subtle shadow */
+}
