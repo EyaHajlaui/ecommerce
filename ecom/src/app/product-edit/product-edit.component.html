@@ -1,0 +1,18 @@
+<form *ngIf="productForm" [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+  <label>Name:</label>
+  <input type="text" formControlName="name" /><br />
+
+  <label>Description:</label>
+  <input type="text" formControlName="description" /><br />
+
+  <label>Price:</label>
+  <input type="number" formControlName="price" /><br />
+
+  <label>Category:</label>
+  <input type="text" formControlName="category" /><br />
+
+  <label>Image:</label>
+  <input type="file" (change)="onFileSelected($event)" /><br /><br />
+
+  <button type="submit">Update Product</button>
+</form>

@@ -1,0 +1,134 @@
+/* Overall layout */
+.order-page {
+  display: flex;
+  background-color: #f9f5f0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  padding: 2rem 1rem;
+  background-color: #fff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h3 {
+  color: #5d4037;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.category {
+  padding: 0.7rem 1rem;
+  color: #5d4037;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.category:hover {
+  background-color: #f1e7e1;
+}
+
+.category.active {
+  background-color: #5d4037;
+  color: #fff;
+}
+
+/* Product section */
+.product-section {
+  flex: 1;
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #5d4037;
+  margin-bottom: 1.5rem;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* Product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  color: #5d4037;
+  margin-top: 1rem;
+}
+
+.price {
+  color: #8d6e63;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.order-btn {
+  background-color: #5d4037;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.order-btn:hover {
+  background-color: #8d6e63;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-page {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .product-section {
+    padding: 1rem;
+  }
+}

@@ -5,22 +5,21 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { OrderComponent } from './order/order.component';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { ProductCreateComponent } from './product-create/product-create.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+
 
 export const routes: Routes = [
-    {path:"",component:HomeComponent},
-    {path:"login",component:LoginComponent},
-    {path:"register",component:SignupComponent},
-    {path:"about",component:AboutusComponent},
-    {path:"contact",component:ContactusComponent},
-    {path:"order",component:OrderComponent},
-];
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: SignupComponent },
+  { path: 'about', component: AboutusComponent },
+  { path: 'contact', component: ContactusComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'add-product', component: ProductCreateComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: '', redirectTo: '/product-list', pathMatch: 'full' },
+  { path: 'products/edit/:id', component: ProductEditComponent }
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+];

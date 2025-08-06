@@ -48,12 +48,7 @@ a {
   
 }
 
-.chat-link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: bold;
-  text-align: center;
-}
+
 
 .contact-form input,
 .contact-form textarea {

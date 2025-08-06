@@ -1,0 +1,60 @@
+/* Base navbar style */
+.navbar {
+  background-color: #f9f5f0; /* Soft ivory-beige background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0.8rem 1.5rem;
+}
+
+/* Logo SVG color */
+.navbar-brand svg {
+  color: #5d4037; /* Deep mocha color */
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover svg {
+  transform: scale(1.1);
+}
+
+/* Nav links */
+.nav-link {
+  color: #5d4037;
+  font-weight: 500;
+  margin: 0 0.8rem;
+  transition: border-bottom 0.2s ease, color 0.2s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover {
+  color: #8d6e63;
+}
+
+.nav-link.active {
+  border-bottom: 2px solid #8d6e63;
+}
+
+/* Getting started button */
+.getting-started {
+  background-color: #5d4037;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.getting-started:hover {
+  background-color: #8d6e63;
+  color: white;
+}
+
+/* Toggle button color for mobile */
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' fill='%235d4037' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%235d4037' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}

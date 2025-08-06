@@ -1,1 +1,42 @@
-<p>order works!</p>
+
+<div class="order-page">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+  <h3>Categories</h3>
+  <ul>
+    <li class="category" 
+        [class.active]="selectedCategory === 'Rings'"
+        (click)="selectCategory('Rings')">
+      Rings
+    </li>
+    <li class="category" 
+        [class.active]="selectedCategory === 'Necklaces'"
+        (click)="selectCategory('Necklaces')">
+      Necklaces
+    </li>
+    <li class="category" 
+        [class.active]="selectedCategory === 'Bracelets'"
+        (click)="selectCategory('Bracelets')">
+      Bracelets
+    </li>
+    <li class="category" 
+        [class.active]="selectedCategory === 'Earrings'"
+        (click)="selectCategory('Earrings')">
+      Earrings
+    </li>
+  </ul>
+</aside>
+
+  <!-- Main content -->
+  <section class="product-section">
+  <h2 class="section-title">{{ selectedCategory }}</h2>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img [src]="product.image" [alt]="product.name" />
+      <h3>{{ product.name }}</h3>
+      <p class="price">${{ product.price }}</p>
+      <button class="order-btn">Order Now</button>
+    </div>
+  </div>
+</section>
+</div>

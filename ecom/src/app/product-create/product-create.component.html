@@ -1,0 +1,30 @@
+<h2>Add New Product</h2>
+
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+  <label>
+    Name:
+    <input name="name" ngModel required />
+  </label><br/>
+  
+  <label>
+    Description:
+    <input name="description" ngModel />
+  </label><br/>
+  
+  <label>
+    Price:
+    <input type="number" name="price" ngModel required />
+  </label><br/>
+  
+  <label>
+    Category:
+    <input name="category" ngModel />
+  </label><br/>
+  
+  <label>
+    Image:
+    <input type="file" (change)="onImageSelected($event)" />
+  </label><br/>
+  
+  <button type="submit">Add Product</button>
+</form>
