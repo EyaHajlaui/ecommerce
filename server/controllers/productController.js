@@ -1,17 +1,30 @@
 const Product = require('../model/product');
 
 // Create a new product
-exports.createProduct = async (req, res) => {
-  const { name, description, price, category, imageUrl} = req.body;
 
+
+
+
+exports.createProduct = async (req, res) => {
   try {
-    const product = new Product({ name, description, price, category, imageUrl });
-    await product.save();
-    res.status(201).json({ message: 'Product created', product });
-  } catch (err) {
-    res.status(500).json({ message: 'Failed to create product', error: err.message });
+    const { name, description, price, category } = req.body;
+    const imageUrl = req.file ? `/uploads/${req.file.filename}` : '';
+
+    const newProduct = new Product({
+      name,
+      description,
+      price,
+      category,
+      imageUrl,
+    });
+
+    await newProduct.save();
+    res.status(201).json({ message: 'Product added', product: newProduct });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };
+
 
 // Get all products
 exports.getAllProducts = async (req, res) => {
@@ -37,13 +50,32 @@ exports.getProductById = async (req, res) => {
 // Update a product
 exports.updateProduct = async (req, res) => {
   try {
-    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    // Extract fields from req.body
+    const { name, description, price, category } = req.body;
+
+    // Build updateData object
+    const updateData = {
+      name,
+      description,
+      price,
+      category,
+    };
+
+    // If a new image was uploaded, update imageUrl
+    if (req.file) {
+      updateData.imageUrl = `/uploads/${req.file.filename}`;
+    }
+
+    const updatedProduct = await Product.findByIdAndUpdate(req.params.id, updateData, { new: true });
+
     if (!updatedProduct) return res.status(404).json({ message: 'Product not found' });
+
     res.status(200).json({ message: 'Product updated', product: updatedProduct });
   } catch (err) {
     res.status(500).json({ message: 'Failed to update product', error: err.message });
   }
 };
+
 
 // Delete a product
 exports.deleteProduct = async (req, res) => {

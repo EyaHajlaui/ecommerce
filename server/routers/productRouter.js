@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const upload = require('../middleware/upload'); 
+
 const {
   createProduct,
   getAllProducts,
@@ -8,19 +10,21 @@ const {
   deleteProduct
 } = require('../controllers/productController');
 
+// Create product with image upload
+router.post('/createproduct', upload.single('image'), createProduct);
 
-router.post('/', createProduct);
+// Get all products
+router.get('/getallproducts', getAllProducts);
 
-
-router.get('/', getAllProducts);
-
-
-router.get('/:id', getProductById);
-
-
-router.put('/:id', updateProduct);
+// Get product by ID
+router.get('/getproductbyid/:id', getProductById);
 
 
-router.delete('/:id', deleteProduct);
+// Update product with image upload
+router.put('/updateproduct/:id', upload.single('image'), updateProduct);
+
+
+// Delete product
+router.delete('/deleteproduct/:id', deleteProduct);
 
 module.exports = router;

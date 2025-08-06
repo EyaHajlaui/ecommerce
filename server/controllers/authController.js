@@ -15,7 +15,7 @@ exports.signup = async (req, res) => {
     await user.save();
 
     const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET);
-    res.status(201).json({ token, user });
+    res.status(201).json({  message:'signup succesful', token, user });
   } catch (err) {
     res.status(500).json({ message: 'Signup failed', error: err.message });
   }
@@ -32,7 +32,7 @@ exports.login = async (req, res) => {
     if (!isMatch) return res.status(400).json({ message: 'Invalid email or password' });
 
     const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET);
-    res.status(200).json({ token, user });
+    res.status(200).json({ message:'login succesful', token, user });
   } catch (err) {
     res.status(500).json({ message: 'login failed', error: err.message });
   }
