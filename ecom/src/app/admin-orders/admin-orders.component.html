@@ -1,0 +1,28 @@
+
+<h2>Admin Orders</h2>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>User</th>
+    <th>Items</th>
+    <th>Total Amount</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let order of orders">
+    <td>{{ order.userId?.firstName }} {{ order.userId?.lastName }}</td>
+    <td>
+      <ul>
+        <li *ngFor="let item of order.items">
+          Product ID: {{ item.productId }} - Qty: {{ item.quantity }}
+        </li>
+      </ul>
+    </td>
+    <td>{{ order.totalAmount | currency }}</td>
+    <td>{{ order.isConfirmed ? 'Confirmed' : 'Pending' }}</td>
+    <td>
+      <button *ngIf="!order.isConfirmed" (click)="confirmOrder(order._id)">Confirm</button>
+    </td>
+  </tr>
+</table>

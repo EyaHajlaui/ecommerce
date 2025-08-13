@@ -50,6 +50,17 @@
   color: white;
 }
 
+.cart-icon {
+  color: #5d4037; /* your brand color */
+  margin-right: 30px;
+  
+  transition: color 0.3s ease;
+}
+
+.cart-icon:hover {
+  color: #8d6e63;
+}
+
 /* Toggle button color for mobile */
 .navbar-toggler {
   border-color: transparent;

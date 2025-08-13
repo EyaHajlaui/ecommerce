@@ -11,8 +11,11 @@
       <label class="form-label">Password</label>
       <input type="password" formControlName="password" class="form-control" placeholder="************" />
     </div>
-
+    
     <button type="submit" class="btn btn-success">Login</button>
     <p>You don't have an account yet? <a routerLink="/register">Register</a></p>
   </div>
+  <div *ngIf="loginMessage" class="login-message">{{ loginMessage }}</div>
+
 </form>
+

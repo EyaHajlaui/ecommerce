@@ -8,5 +8,6 @@ router.post('/createorder',  orderController.createOrder);
 
 
 router.put('/confirm/:id',  orderController.confirmOrder);
+router.get('/all', orderController.getAllOrders);
 
 module.exports = router;

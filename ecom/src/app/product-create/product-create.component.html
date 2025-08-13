@@ -1,14 +1,16 @@
+<div class="form-wrapper">
 <h2>Add New Product</h2>
 
-<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)"><br>
   <label>
     Name:
-    <input name="name" ngModel required />
+    <input type="text" name="name" ngModel required />
   </label><br/>
   
   <label>
     Description:
-    <input name="description" ngModel />
+    <input type="text"  name="description" ngModel />
   </label><br/>
   
   <label>
@@ -18,7 +20,7 @@
   
   <label>
     Category:
-    <input name="category" ngModel />
+    <input type="text" name="category" ngModel />
   </label><br/>
   
   <label>
@@ -28,3 +30,4 @@
   
   <button type="submit">Add Product</button>
 </form>
+</div>

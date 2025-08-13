@@ -32,10 +32,13 @@
   <h2 class="section-title">{{ selectedCategory }}</h2>
   <div class="product-grid">
     <div class="product-card" *ngFor="let product of filteredProducts">
-      <img [src]="product.image" [alt]="product.name" />
+      <img [src]="'http://localhost:5000' + product.imageUrl" [alt]="product.name" />
       <h3>{{ product.name }}</h3>
       <p class="price">${{ product.price }}</p>
-      <button class="order-btn">Order Now</button>
+      <div class="button-group">
+        <button class="order-btn">Order Now</button>
+        <button class="order-btn" (click)="addToCart(product)">Add to Cart</button>
+      </div>
     </div>
   </div>
 </section>

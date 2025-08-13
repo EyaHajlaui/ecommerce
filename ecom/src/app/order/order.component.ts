@@ -1,31 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product.service'; // adjust path
 import { CommonModule } from '@angular/common';
+import { CartService } from '../services/cart.service';
+
 
 @Component({
   selector: 'app-order',
-  imports: [CommonModule],
+  standalone: true,               // assumed
+  imports: [CommonModule], 
   templateUrl: './order.component.html',
-  styleUrl: './order.component.css'
-  
+  styleUrl: './order.component.css',
 })
-export class OrderComponent {
+export class OrderComponent implements OnInit {
   selectedCategory: string = 'Rings';
+  products: any[] = []; // fetched from backend
 
-  // Full product list
-  products = [
-    { name: 'Diamond Ring', price: 249.99, image: 'assets/images/ring1.jpg', category: 'Rings' },
-    { name: 'Golden Necklace', price: 199.99, image: 'assets/images/necklace1.jpg', category: 'Necklaces' },
-    { name: 'Pearl Bracelet', price: 149.99, image: 'assets/images/bracelet1.jpg', category: 'Bracelets' },
-    { name: 'Silver Earrings', price: 89.99, image: 'assets/images/earrings1.jpg', category: 'Earrings' }
-  ];
+  constructor(private productService: ProductService, private cartService: CartService ) {}
+  
+  ngOnInit() {
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+        console.log('Fetched products:', this.products);
+      },
+      error: (err) => {
+        console.error('Error fetching products:', err);
+      }
+    });
+  }
 
-  // Filtered products based on selected category
   get filteredProducts() {
     return this.products.filter(product => product.category === this.selectedCategory);
   }
 
-  // Update category when user clicks sidebar item
   selectCategory(category: string) {
     this.selectedCategory = category;
+  }
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    alert(`${product.name} has been added to your cart!`);
   }
 }

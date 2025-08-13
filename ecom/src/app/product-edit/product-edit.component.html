@@ -1,3 +1,5 @@
+<div class="form-wrapper">
+  <h2>Update</h2>
 <form *ngIf="productForm" [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
   <label>Name:</label>
   <input type="text" formControlName="name" /><br />
@@ -16,3 +18,4 @@
 
   <button type="submit">Update Product</button>
 </form>
+</div>

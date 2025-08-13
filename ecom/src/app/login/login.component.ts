@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,RouterLink,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  loginMessage: string = '';
+
 
   constructor(
     private fb: FormBuilder,
@@ -43,7 +46,8 @@ export class LoginComponent implements OnInit {
         
         console.log('Login success response:', res);
 
-        alert('Login successful!');
+        this.loginMessage = 'Login successful! Welcome back.';
+
         
         if(res.user.role==="admin"){
           this.authService.updateUserRole(res.user.role)

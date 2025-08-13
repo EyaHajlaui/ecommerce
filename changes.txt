@@ -1,0 +1,13 @@
+ Project Update 
+
+1. Logout redirection to login page  
+ 
+
+2. Products displayed by category on the Order page (user side)  
+   
+
+3. User cart icon  
+
+
+4. Admin order management page  
+   

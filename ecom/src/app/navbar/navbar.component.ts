@@ -4,6 +4,8 @@ import{FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-navbar',
   imports: [RouterLink,CommonModule,FormsModule,ReactiveFormsModule,RouterModule],
@@ -12,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
   role:any=null;
-constructor(private service:AuthService){
+constructor(private service:AuthService,private router: Router){
 
 }
   ngOnInit(): void {
@@ -26,7 +28,9 @@ constructor(private service:AuthService){
   }
   logout(){
     this.service.updateUserRole(null)
-    //redirectionvers la page login 
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+    //redirection vers la page login 
   }
 
 }
